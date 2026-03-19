@@ -1,0 +1,125 @@
+{
+  "config": {
+    "seed": 42,
+    "rounds": 3,
+    "local_steps": 10,
+    "client_top_k": 2,
+    "consensus_steps": 2,
+    "latency_budget_ms": 55.0,
+    "parameter_budget_m": 15.0,
+    "graph_weights": {
+      "dataset_scale": 0.35,
+      "label_similarity": 0.3,
+      "structural_similarity": 0.2,
+      "gradient_alignment": 0.15
+    },
+    "candidate_pool": [
+      {
+        "name": "bert-mini-lora4",
+        "layers": 4,
+        "hidden_size": 256,
+        "intermediate_size": 1024,
+        "attention_heads": 4,
+        "lora_rank": 4,
+        "estimated_latency_ms": 22.0,
+        "estimated_params_m": 4.8
+      },
+      {
+        "name": "bert-small-lora8",
+        "layers": 6,
+        "hidden_size": 384,
+        "intermediate_size": 1536,
+        "attention_heads": 6,
+        "lora_rank": 8,
+        "estimated_latency_ms": 38.0,
+        "estimated_params_m": 11.2
+      },
+      {
+        "name": "bert-base-lite-lora8",
+        "layers": 8,
+        "hidden_size": 512,
+        "intermediate_size": 2048,
+        "attention_heads": 8,
+        "lora_rank": 8,
+        "estimated_latency_ms": 57.0,
+        "estimated_params_m": 18.7
+      }
+    ]
+  },
+  "round_artifacts": {
+    "adjacency": [
+      [
+        1.0,
+        0.8781102211873204,
+        0.5534287609045498
+      ],
+      [
+        0.8781102211873204,
+        1.0,
+        0.6703730312435018
+      ],
+      [
+        0.5534287609045498,
+        0.6703730312435018,
+        1.0
+      ]
+    ],
+    "consensus_matrix": [
+      [
+        0.33333333333333337,
+        0.33333333333333337,
+        0.3333333333333333
+      ],
+      [
+        0.33333333333333337,
+        0.33333333333333337,
+        0.3333333333333333
+      ],
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.33333333333333337
+      ]
+    ],
+    "selected_subnetworks": {
+      "client_0": "bert-small-lora8",
+      "client_1": "bert-small-lora8",
+      "client_2": "bert-mini-lora4"
+    },
+    "aggregated_updates": [
+      {
+        "classifier.bias": [
+          8.673617379884035e-19,
+          0.006666666666666666
+        ],
+        "classifier.weight": [
+          0.06666666666666668,
+          -0.0033333333333333375,
+          0.02000000000000001
+        ]
+      },
+      {
+        "classifier.bias": [
+          8.673617379884035e-19,
+          0.006666666666666666
+        ],
+        "classifier.weight": [
+          0.06666666666666668,
+          -0.0033333333333333375,
+          0.02000000000000001
+        ]
+      },
+      {
+        "classifier.bias": [
+          -8.673617379884035e-19,
+          0.006666666666666668
+        ],
+        "classifier.weight": [
+          0.06666666666666667,
+          -0.003333333333333327,
+          0.02
+        ]
+      }
+    ]
+  }
+}

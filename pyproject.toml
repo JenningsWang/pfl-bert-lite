@@ -1,0 +1,25 @@
+﻿[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pfl-bert-lite"
+version = "0.1.0"
+description = "Public-facing prototype for personalized federated BERT fine-tuning with graph-guided consensus aggregation."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Your Name" }]
+dependencies = [
+  "torch>=2.2",
+  "transformers>=4.40",
+  "peft>=0.11",
+  "fastapi>=0.110",
+  "uvicorn>=0.29",
+]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.packages.find]
+where = ["src"]
