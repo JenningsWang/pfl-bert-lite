@@ -2,7 +2,7 @@
 
 `PFL-BERT Lite` is a public-facing research prototype for personalized federated fine-tuning of BERT-like models under non-IID data, compute heterogeneity, and decentralized communication constraints.
 
-This repository distills three ideas into a compact, interview-ready codebase:
+This repository distills three ideas into a compact, public-view-ready codebase:
 
 1. Constraint-aware model selection inspired by supernet / NAS style compression.
 2. BERT-style fine-tuning with LoRA adapters for parameter efficiency.
